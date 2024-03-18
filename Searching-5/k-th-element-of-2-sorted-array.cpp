@@ -4,17 +4,13 @@
         int l=0,h=size-1;
         while(l<=h){
             int m=(l+h)/2;
-            if(a[m]==mid){
-                return m-1;
-            }
-            else if(a[m]<mid){
-                h=m-1;      
-            }
-            else{
-                l=m+1;
-            }
+             if (a[m] < mid) {
+            l = m + 1;
+        } else {
+            h = m - 1;
         }
-        return 0;
+    }
+    return l;
     }
     int kth(vector<int> nums1,vector<int> nums2,int k) {
        int l=min(nums1[0],nums2[0]);
@@ -27,15 +23,11 @@
         if(c<k){
             l=m+1;
         }
-        else if(c>k){
-            h=m;
-        }
         else{
-           ans=m;
-           l=m+1;
+           h=m-1;
         }
        }
-       return ans;
+       return l-1;
     }
     int main(){
         vector<int> nums1={2,3,9,10};
